@@ -29,7 +29,7 @@ document.addEventListener('keydown', function (e) {
     closeModal();
   }
 });
-
+// creating button by DOM manipulations.
 const header = document.querySelector('.header')
 const allSections = document.querySelectorAll('.section');
 document.getElementById('section--1');
