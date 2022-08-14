@@ -47,3 +47,14 @@ header.append(message);
 document.querySelector('.btn--close-cookie').addEventListener('click', function(){
   message.remove();
 });
+
+
+//Working with CSS styles.
+
+message.style.backgroundColor = '#37383d';
+message.style.width = '120%';
+
+
+
+
+message.style.height = Number.parseFloat( getComputedStyle(message).height,10) + 40 + 'px';
