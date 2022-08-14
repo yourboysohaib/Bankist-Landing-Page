@@ -30,6 +30,7 @@ document.addEventListener('keydown', function (e) {
   }
 });
 // creating button by DOM manipulations.
+// Selecting particular element and class via DOM
 const header = document.querySelector('.header')
 const allSections = document.querySelectorAll('.section');
 document.getElementById('section--1');
