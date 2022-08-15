@@ -137,6 +137,7 @@ tabsContainer.addEventListener('click', function(e){
 
 if(!clicked) return
 tabs.forEach(t=> t.classList.remove('operations__tabs--active'))
+tabsContent.forEach(c => c.classList.remove('operations__content--active'));
 clicked.classList.add('operations__tabs--active')
 
 // ACtivating content 
