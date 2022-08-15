@@ -87,13 +87,39 @@ btnScrollTo.addEventListener('click', function (e) {
 
   // ---------------------------------------------------------------
   // Method works with modern browser
-  section1.scrollTo({ behavior: 'smooth' });
+  section1.scrollIntoView({ behavior: 'smooth' });
 });
 
 // Event Listerner
 
-const h1 = document.querySelector('.h1');
+const h1 = document.querySelector('h1');
 
-h1.addEventListener('mouseenter', function (e) {
+// General Way
+
+const h1Alert = function (e) {
   alert(`You are reading the heading!`);
-});
+};
+
+h1.addEventListener('mouseenter', h1Alert);
+// REmoving an event listerner
+setTimeout(() => h1.removeEventListener('mouseenter', h1Alert), 3000);
+// ---------------------------------------------------------/
+// CAlling the property directly on the varibale
+
+// h1.onmouseenter = function(e){
+//   alert(`You are reading the header!`)
+// }
+// ------------------------------------------------
+
+
+//Scrolling to the sections
+
+document.querySelectorAll('.nav__link').forEach(function(el){
+  el.addEventListener('click', function(e){
+    e.preventDefault();
+    const id = this.getAttribute('href');
+    document.querySelector(id).scrollIntoView({
+      behavior : 'smooth'
+    })
+  })
+})
