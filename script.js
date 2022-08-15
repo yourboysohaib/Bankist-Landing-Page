@@ -31,30 +31,69 @@ document.addEventListener('keydown', function (e) {
 });
 // creating button by DOM manipulations.
 // Selecting particular element and class via DOM
-const header = document.querySelector('.header')
+const header = document.querySelector('.header');
 const allSections = document.querySelectorAll('.section');
 document.getElementById('section--1');
 const allButtons = document.getElementsByTagName('button');
 console.log(allButtons);
 const message = document.createElement('div');
 message.classList.add('cookie-message');
-message.innerHTML = 
-'We use cookies for improved functionality and analytics of the site. <button class="btn btn--close-cookie">Got it!</button>';
+message.innerHTML =
+  'We use cookies for improved functionality and analytics of the site. <button class="btn btn--close-cookie">Got it!</button>';
 header.append(message);
 
 //Removing the button when clicked
 
-document.querySelector('.btn--close-cookie').addEventListener('click', function(){
-  message.remove();
-});
-
+document
+  .querySelector('.btn--close-cookie')
+  .addEventListener('click', function () {
+    message.remove();
+  });
 
 //Working with CSS styles.
 
 message.style.backgroundColor = '#37383d';
 message.style.width = '100%';
 
-message.style.height = Number.parseFloat( getComputedStyle(message).height,10) + 40 + 'px';
-
+message.style.height =
+  Number.parseFloat(getComputedStyle(message).height, 10) + 40 + 'px';
 
 // Attributes
+// add, remove, contains, toggle
+
+//SCrolling to the  next secion
+//1st Way
+
+const btnScrollTo = document.querySelector('.btn--scroll-to');
+const section1 = document.querySelector('#section--1');
+
+btnScrollTo.addEventListener('click', function (e) {
+  const s1coords = section1.getBoundingClientRect();
+
+  // Scrolling
+  // window.scrollTo(
+  //   s1coords.left + window.pageXOffset,
+  //   s1coords.top + window.pageYOffset
+  // );
+
+  // -------------------------------------------------------------------
+  // Smooth Scrolling
+
+  //   window.scrollTo({
+  //     left: s1coords.left + window.pageXOffset,
+  //     top: s1coords.top + window.pageYOffset,
+  //     behavior : 'smooth'
+  // });
+
+  // ---------------------------------------------------------------
+  // Method works with modern browser
+  section1.scrollTo({ behavior: 'smooth' });
+});
+
+// Event Listerner
+
+const h1 = document.querySelector('.h1');
+
+h1.addEventListener('mouseenter', function (e) {
+  alert(`You are reading the heading!`);
+});
