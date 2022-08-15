@@ -37,7 +37,7 @@ document.getElementById('section--1');
 const allButtons = document.getElementsByTagName('button');
 console.log(allButtons);
 const message = document.createElement('div');
-message.classList.add('cookie--message');
+message.classList.add('cookie-message');
 message.innerHTML = 
 'We use cookies for improved functionality and analytics of the site. <button class="btn btn--close-cookie">Got it!</button>';
 header.append(message);
@@ -52,9 +52,9 @@ document.querySelector('.btn--close-cookie').addEventListener('click', function(
 //Working with CSS styles.
 
 message.style.backgroundColor = '#37383d';
-message.style.width = '120%';
-
-
-
+message.style.width = '100%';
 
 message.style.height = Number.parseFloat( getComputedStyle(message).height,10) + 40 + 'px';
+
+
+// Attributes
