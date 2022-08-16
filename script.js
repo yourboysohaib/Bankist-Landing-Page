@@ -92,17 +92,17 @@ btnScrollTo.addEventListener('click', function (e) {
 
 // Event Listerner
 
-const h1 = document.querySelector('h1');
+// const h1 = document.querySelector('h1');
 
 // General Way
 
-const h1Alert = function (e) {
-  alert(`You are reading the heading!`);
-};
+// const h1Alert = function (e) {
+//   alert(`You are reading the heading!`);
+// };
 
-h1.addEventListener('mouseenter', h1Alert);
+// h1.addEventListener('mouseenter', h1Alert);
 // REmoving an event listerner
-setTimeout(() => h1.removeEventListener('mouseenter', h1Alert), 3000);
+// setTimeout(() => h1.removeEventListener('mouseenter', h1Alert), 3000);
 // ---------------------------------------------------------/
 // CAlling the property directly on the varibale
 
@@ -152,9 +152,8 @@ console.log(navHeight);
 const stickyNav = function (entries) {
   const [entry] = entries;
 
-  if (!entries.isIntersecting) {
-    nav.classList.add('sticky');
-  } else nav.classList.remove('sticky');
+  if (!entries.isIntersecting) nav.classList.add('sticky');
+  else nav.classList.remove('sticky');
 };
 
 const headerObserver = new IntersectionObserver(stickyNav, {
