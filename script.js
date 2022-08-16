@@ -149,9 +149,9 @@ tabsContainer.addEventListener('click', function (e) {
 //header already declared uptown @ line 34
 
 const navHeight = nav.getBoundingClientRect().height;
-console.log(navHeight);
+// console.log(navHeight);
 
-// Adding the class of sticky in the element 
+// Adding the class of sticky in the element
 const stickyNav = function (entries) {
   const [entry] = entries;
 
@@ -159,7 +159,7 @@ const stickyNav = function (entries) {
   else nav.classList.remove('sticky');
 };
 
-// Using the IntersectionObserver() function 
+// Using the IntersectionObserver() function
 const headerObserver = new IntersectionObserver(stickyNav, {
   root: null,
   threshold: 0,
@@ -168,3 +168,37 @@ const headerObserver = new IntersectionObserver(stickyNav, {
 headerObserver.observe(header);
 
 //---------------------------------------------------------------------------------
+// Revealing Section while scrolling
+
+// AChieve the effect by adding classes in the CSS using intersection Observer API
+
+// const allSections = document.querySelectorAll('.section');
+const revealSection = function (entries, observer) {
+  const [entry] = entries;
+
+  if (!entry.isIntersecting) return;
+  //Removing the class from the tag with target method.
+  entry.target.classList.remove('section--hidden');
+  observer.unobserve(entry.target);
+};
+const sectionObserver = new IntersectionObserver(revealSection, {
+  root: null,
+  threshold: 0.15,
+});
+allSections.forEach(function (section) {
+  sectionObserver.observe(section);
+  section.classList.add('section--hidden');
+});
+
+
+// Lazy loading images
+
+const imgTargets = document.querySelectorAll('img [data-src]');
+const loadImg = function(entries, observer){
+  const [entry] = entries;
+
+}
+const imgObserver = new IntersectionObserver(loadImg,{
+});
+
+imgTargets.forEach(img=> imgObserver.observe(img));
