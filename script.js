@@ -111,35 +111,55 @@ setTimeout(() => h1.removeEventListener('mouseenter', h1Alert), 3000);
 // }
 // ------------------------------------------------
 
-
 //Scrolling to the sections
 
-document.querySelectorAll('.nav__link').forEach(function(el){
-  el.addEventListener('click', function(e){
+document.querySelectorAll('.nav__link').forEach(function (el) {
+  el.addEventListener('click', function (e) {
     e.preventDefault();
     const id = this.getAttribute('href');
     document.querySelector(id).scrollIntoView({
-      behavior : 'smooth'
-    })
-  })
-})
+      behavior: 'smooth',
+    });
+  });
+});
 
 //Tabs Container
-// DEfiing active and hide classes to the content for tabs switch 
+// DEfiing active and hide classes to the content for tabs switch
 const tabs = document.querySelectorAll('.operations__tab');
 const tabsContainer = document.querySelector('.operations__tab-container');
 const tabsContent = document.querySelectorAll('.operations__content');
 
-tabsContainer.addEventListener('click', function(e){
-
+tabsContainer.addEventListener('click', function (e) {
   const clicked = e.target.closest('.operations__tab');
   console.log(clicked);
 
-if(!clicked) return
-tabs.forEach(t=> t.classList.remove('operations__tabs--active'))
-tabsContent.forEach(c => c.classList.remove('operations__content--active'));
-clicked.classList.add('operations__tabs--active')
+  if (!clicked) return;
+  tabs.forEach(t => t.classList.remove('operations__tabs--active'));
+  tabsContent.forEach(c => c.classList.remove('operations__content--active'));
+  clicked.classList.add('operations__tabs--active');
 
-// ACtivating content 
-document.querySelector(`.operations__content--${clicked.dataset.tab}`).classList.add('operations__content--active');
-})
+  // ACtivating content
+  document
+    .querySelector(`.operations__content--${clicked.dataset.tab}`)
+    .classList.add('operations__content--active');
+});
+
+// Sticky Navigation.
+//header already declared uptown @ line 34
+const navHeight = nav.getBoundingClientRect().height;
+console.log(navHeight);
+
+const stickyNav = function (entries) {
+  const [entry] = entries;
+
+  if (!entries.isIntersecting) {
+    nav.classList.add('sticky');
+  } else nav.classList.remove('sticky');
+};
+
+const headerObserver = new IntersectionObserver(stickyNav, {
+  root: null,
+  threshold: 0,
+  rootMargin: `-${navHeight}px`,
+});
+headerObserver.observe(header);
