@@ -7,6 +7,7 @@ const modal = document.querySelector('.modal');
 const overlay = document.querySelector('.overlay');
 const btnCloseModal = document.querySelector('.btn--close-modal');
 const btnsOpenModal = document.querySelectorAll('.btn--show-modal');
+const nav = document.querySelector('.nav');
 
 const openModal = function () {
   modal.classList.remove('hidden');
@@ -143,12 +144,14 @@ tabsContainer.addEventListener('click', function (e) {
     .querySelector(`.operations__content--${clicked.dataset.tab}`)
     .classList.add('operations__content--active');
 });
-
+//----------------------------------------------------------------------------------
 // Sticky Navigation.
 //header already declared uptown @ line 34
-const navHeight = nav.getBoundingClientRect();
+
+const navHeight = nav.getBoundingClientRect().height;
 console.log(navHeight);
 
+// Adding the class of sticky in the element 
 const stickyNav = function (entries) {
   const [entry] = entries;
 
@@ -156,9 +159,12 @@ const stickyNav = function (entries) {
   else nav.classList.remove('sticky');
 };
 
+// Using the IntersectionObserver() function 
 const headerObserver = new IntersectionObserver(stickyNav, {
   root: null,
   threshold: 0,
   rootMargin: `-${navHeight}px`,
 });
 headerObserver.observe(header);
+
+//---------------------------------------------------------------------------------
