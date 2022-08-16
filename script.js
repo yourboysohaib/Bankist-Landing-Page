@@ -146,7 +146,7 @@ tabsContainer.addEventListener('click', function (e) {
 
 // Sticky Navigation.
 //header already declared uptown @ line 34
-const navHeight = nav.getBoundingClientRect().height;
+const navHeight = nav.getBoundingClientRect();
 console.log(navHeight);
 
 const stickyNav = function (entries) {
