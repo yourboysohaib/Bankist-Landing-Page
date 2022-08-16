@@ -191,7 +191,7 @@ allSections.forEach(function (section) {
 });
 
 // Lazy loading images
-
+// the below code as some error i wasn't able to find at that time??!!!!!!!
 // const imgTargets = document.querySelectorAll('img [data-src]');
 // const loadImg = function (entries, observer) {
 //   const [entry] = entries;
