@@ -217,6 +217,7 @@ allSections.forEach(function (section) {
 
 
 // -----------------------------------------------------------
+// Corrcet Version
 const imgTargets = document.querySelectorAll('img[data-src]');
 
 const loadImg = function (entries, observer) {
@@ -230,6 +231,7 @@ const loadImg = function (entries, observer) {
   entry.target.addEventListener('load', function () {
     entry.target.classList.remove('lazy-img');
   });
+
 
   observer.unobserve(entry.target);
 };
