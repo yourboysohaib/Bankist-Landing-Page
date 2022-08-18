@@ -244,7 +244,7 @@ imgTargets.forEach(img => imgObserver.observe(img));
 // --------------------------------------------------------------
 
 // Slider Start
-
+// IT can be used in future
 const slider = function () {
   const slides = document.querySelectorAll('.slide');
   const btnLeft = document.querySelector('.slider__btn--left');
