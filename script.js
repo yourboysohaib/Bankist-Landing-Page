@@ -331,3 +331,25 @@ const slider = function () {
 slider();
 
 // Sliders Ends
+
+//DOMContentLoaded Event
+document.addEventListener('DOMContentLoaded',
+  function (e) {
+    console.log('HTML and CSS parsed and DOM tree built', e);
+  });
+//DOM Load event
+window.addEventListener('load', function (e) {
+  console.log(`Page fully loaded`, e);
+});
+//Before leaving event HIGHLY USEFUL IN FUTURE
+// window.addEventListener('beforeunload', function (e) {
+//   e.preventDefault();
+//   console.log(e);
+//   e.returnValue = 'MESSAGE';
+// });
+
+window.addEventListener('beforeunload', function (e) {
+  e.preventDefault();
+  console.log(e);
+  e.returnValue = 'message';
+});
