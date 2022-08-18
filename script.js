@@ -92,6 +92,7 @@ btnScrollTo.addEventListener('click', function (e) {
 });
 
 // Event Listerner
+// Exampple for mouse Event
 
 // const h1 = document.querySelector('h1');
 
