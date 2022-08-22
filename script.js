@@ -347,3 +347,11 @@ window.addEventListener('beforeunload', function (e) {
   console.log(e);
   e.returnValue = 'message';
 });
+
+
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
